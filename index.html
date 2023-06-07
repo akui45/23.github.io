@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>漫步历史遗迹，对话中华文明</title>
+    <script src="jquery-3.7.0.min.js"></script>
+    <style>
+        .main_title {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            height:745px;
+            width: 129px;
+            text-align: justify-all;
+            background: rgb(197, 150, 106);
+            border-right: 1px solid black;
+            display: inline-block;
+            z-index: 200;
+        }
+        h1{
+            position: relative;
+            top:12px;
+            left:10px;
+            color: rgb(0, 0, 0);
+            writing-mode: tb-rl;
+            font-family: 方正行楷_GBK;
+            font-weight: normal;
+            font-size: 43px;
+            text-shadow: white 1px 0 1px ;
+            text-align: center;
+        }
+        .title-hd{
+            position: relative;
+            top:40px;
+            bottom: 0;
+            line-height: 55px;
+            font-size: 8px;
+            height:72px;
+            text-align: center;
+            color: black;
+            border-top: 1px solid black;
+            font-family: 楷体;
+        }
+        .title-hd:hover{
+            background-color: rgb(221,187,153);
+        }
+        .menu{
+            position: absolute;
+            top: 0;
+            left:129px;
+            bottom: 0;
+            height: 745px;
+            width: 360px;
+            text-align: center;
+            background: rgb(221,187,153);
+            border-right: 1px solid black;
+            display: inline-block;
+        }
+        .menu-second{
+            position: absolute;
+            top: 0;
+            left:129px;
+            bottom: 0;
+            height: 745px;
+            width: 359px;
+            text-align: center;
+            background: rgb(239, 239, 239);
+            display: inline-block;
+        }
+        table{
+            font-family: 文泉驿微米黑;
+            padding: 1px 1px 2px 2px;
+            font-size: 12px;
+            align-items: center;
+        }
+        .table1{
+            position: absolute;
+            top: 20px;
+            width: 360px;
+        }
+        .table2{
+            position: absolute;
+            top: 180px;
+            width: 360px;
+        }
+        th{
+            text-align: center;
+            border: 1px solid black;
+        }
+        td{
+            text-align: center;
+            border: 1px solid black;
+        }
+        .back {
+            position: absolute;
+            top:0;
+            left:0;
+            height: 745px;
+            width: 1535px;
+            background: rgb(239, 239, 239);
+            z-index: -200;
+        }
+        p{
+            font-family: 楷体;
+            font-weight: bold;
+            line-height: 24px;
+            font-size: 17px;
+        }
+        button{
+            position: absolute;
+            height: 15px;
+            width: 15px;
+            z-index: 200;
+            font-size: 10px;
+            padding: 0;
+            text-align: center;
+            border: 1px solid black;
+        }
+        .btn1{
+            top:40px;
+            left: 450px;
+        }
+        .btn2{
+            top:40px;
+            left: 470px;
+        }
+        .main_body{
+            position: relative;
+            top: 0;
+            bottom: 0;
+            left: 482px;
+            width: 1036px;
+            height: 702px;
+        }
+        .big_img{
+            position: absolute;
+            left: 85px;
+            height: 520px;
+            width: 860px;
+            transition: .4s;
+            background-size: cover;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .img_blur{
+            position: absolute;
+            height: 632px;
+            width: 1046px;
+            transition: .4s;
+            background-size: cover;
+            overflow: hidden;
+            filter: blur(15px);
+            z-index: -10;
+        }
+        .small_img{
+            position: absolute;
+            top: 545px;
+            height: 125px;
+            width: 978px;
+            border: 1px solid black;
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            align-items:start;
+            padding: 32px;
+            flex-direction: row;
+        }
+        .small_img>div{
+            block-size: 100px;
+            aspect-ratio: 1.5;
+            box-shadow: 0 0 5px 5px rgba(136, 128, 128, 0.3);
+            position: relative;
+            right: 0;
+            transition: .5s;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .name{
+            position: relative;
+            top: 110px;
+            font-family: 楷体;
+            font-weight: bold;
+            font-size: 12px;
+            text-align: center;
+        }
+        .img img{
+            position: absolute;
+            transition: .5s;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .img.img1{
+            opacity: 0;
+        }
+        .img:hover{
+            opacity: 0;
+        }
+        /* 设置滚动条的高度 */
+        ::-webkit-scrollbar{
+            height: 12px;
+        }
+        /* 设置滚动条的背景色 */
+        ::-webkit-scrollbar-track{
+            background-color: #f5f5f5;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: rgb(205,205,205);
+            border-radius: 8px;
+        }
+        .box-one{
+            position: absolute;
+            top:53px;
+            left: 20px;
+            text-align: center;
+            display: inline-block;
+            width: 330px;
+            height: 320px;
+            margin-top: 8px;
+        }
+        .box-two{
+            position: absolute;
+            top:360px;
+        }
+        .box-second{
+            position: absolute;
+            top:0;
+            left: 1176px;
+            height: 745px;
+            width: 360px;
+            z-index: -200;
+        }
+        .map{
+            position: absolute;
+            top:0;
+            left:485px;
+            width: 1049px;
+            height: 745px;
+            z-index: -200;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div id="title" class="main_title">
+        <h1>漫步历史遗迹，对话中华文明</h1>
+        <div id="ShiJie" class="title-hd" onclick="theme1()">
+            <h2>中国世界文化遗产</h2>
+        </div>
+        <div id="Nationwide" class="title-hd" onclick="theme2()" >
+            <h3>全国重点文物保护单位</h3>
+        </div>
+    </div>
+</header>
+<div class="Nationwide">
+    <div class="back"></div>
+    <div class="menu-second">
+        <p>全国重点文物保护单位 <br> 各批次占比</p>
+        <div id="box-one" class="box-one"></div>
+        <div id="box-two" class="box-two">
+            <table class="table1">
+                <tr>
+                    <td>类型</td>
+                    <td>第一批</td>
+                    <td>第二批</td>
+                    <td>第三批</td>
+                </tr>
+                <tr>
+                    <td>革命遗址及革命纪念建筑物</td>
+                    <td>33</td>
+                    <td>10</td>
+                    <td>41</td>
+                </tr>
+                <tr>
+                    <td>石窟寺</td>
+                    <td>14</td>
+                    <td>5</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>古建筑及历史纪念建筑物</td>
+                    <td>77</td>
+                    <td>28</td>
+                    <td>111</td>
+                </tr>
+                <tr>
+                    <td>石刻及其他</td>
+                    <td>11</td>
+                    <td>2</td>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <td>古遗址</td>
+                    <td>26</td>
+                    <td>10</td>
+                    <td>49</td>
+                </tr>
+                <tr>
+                    <td>古墓葬</td>
+                    <td>19</td>
+                    <td>7</td>
+                    <td>29</td>
+                </tr>
+            </table>
+            <p></p>
+            <table class="table2">
+                <tr>
+                    <td>类型</td>
+                    <td>第四批</td>
+                    <td>第五批</td>
+                    <td>第六批</td>
+                    <td>第七批</td>
+                    <td>第八批</td>
+                </tr>
+                <tr>
+                    <td>古遗址</td>
+                    <td>56</td>
+                    <td>144</td>
+                    <td>220</td>
+                    <td>516</td>
+                    <td>167</td>
+                </tr>
+                <tr>
+                    <td>古墓葬</td>
+                    <td>22</td>
+                    <td>50</td>
+                    <td>77</td>
+                    <td>186</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>古建筑</td>
+                    <td>110</td>
+                    <td>248</td>
+                    <td>513</td>
+                    <td>795</td>
+                    <td>280</td>
+                </tr>
+                <tr>
+                    <td>古窟寺及石刻</td>
+                    <td>10</td>
+                    <td>31</td>
+                    <td>63</td>
+                    <td>110</td>
+                    <td>39</td>
+                </tr>
+                <tr>
+                    <td>近现代重要史迹及代表性建筑</td>
+                    <td>50</td>
+                    <td>40</td>
+                    <td>206</td>
+                    <td>329</td>
+                    <td>234</td>
+                </tr>
+                <tr>
+                    <td>其他</td>
+                    <td>2</td>
+                    <td>5</td>
+                    <td>1</td>
+                    <td>7</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>与现有全国重点文物保护单位合并的项目</td>
+                    <td>12</td>
+                    <td>23</td>
+                    <td>103</td>
+                    <td>47</td>
+                    <td>50</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="map" class="map">全国重点文物保护单位各省份数量分布</div>
+    <div id="all_pc" class="box-second"></div>
+
+</div>
+<div class="ShiJie">
+    <button class="btn1" onclick="page1()" >1</button>
+    <button class="btn2" onclick="page2()">2</button>
+    <div class="back"></div>
+    <div id="2" class="menu">
+        <p>中国世界文化遗产名录</p>
+        <table >
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>名称</th>
+                <th>省份</th>
+            </tr>
+            </thead>
+            <tbody >
+            <tr class="page_2">
+                <td >22</td>
+                <td >皖南古村落-西递、宏村</td>
+                <td >安徽省</td>
+            </tr>
+            <tr class="page_2">
+                <td >23</td>
+                <td >青城山-都江堰</td>
+                <td >四川省</td>
+            </tr>
+            <tr class="page_2">
+                <td >24</td>
+                <td >龙门石窟</td>
+                <td >河南省</td>
+            </tr>
+            <tr class="page_2">
+                <td >25</td>
+                <td >云冈石窟</td>
+                <td >山西省</td>
+            </tr>
+            <tr class="page_2">
+                <td >26</td>
+                <td >高句丽王城、王陵及贵族墓葬</td>
+                <td >辽宁省、吉林省</td>
+            </tr>
+            <tr class="page_2">
+                <td >27</td>
+                <td >澳门历史城区</td>
+                <td >澳门特别行政区</td>
+            </tr>
+            <tr class="page_2">
+                <td >28</td>
+                <td >殷墟</td>
+                <td >河南省</td>
+            </tr>
+            <tr class="page_2">
+                <td >29</td>
+                <td >开平碉楼与村落</td>
+                <td >广东省</td>
+            </tr>
+            <tr class="page_2">
+                <td >30</td>
+                <td >福建土楼</td>
+                <td >福建省</td>
+            </tr>
+            <tr class="page_2">
+                <td >31</td>
+                <td >五台山</td>
+                <td >山西省</td>
+            </tr>
+            <tr class="page_2">
+                <td >32</td>
+                <td >登封“天地之中”历史建筑群</td>
+                <td >河南省</td>
+            </tr>
+            <tr class="page_2">
+                <td >33</td>
+                <td >杭州西湖文化景观</td>
+                <td >浙江省</td>
+            </tr>
+            <tr class="page_2">
+                <td >34</td>
+                <td >元上都遗址</td>
+                <td >内蒙古自治区</td>
+            </tr>
+            <tr class="page_2">
+                <td >35</td>
+                <td >红河哈尼梯田文化景观</td>
+                <td >云南省</td>
+            </tr>
+            <tr class="page_2">
+                <td >36</td>
+                <td >丝绸之路：长安-天山廊道的路网</td>
+                <td >中国(陕西省、河南省、甘肃省、新疆维吾尔自治区)、 哈萨克斯坦、 吉尔吉斯斯坦</td>
+            </tr>
+            <tr class="page_2">
+                <td >37</td>
+                <td >大运河</td>
+                <td >北京市、天津市、河北省、山东省、河南省、安徽省、江苏省、浙江省</td>
+            </tr>
+            <tr class="page_2">
+                <td >38</td>
+                <td >土司遗址</td>
+                <td >贵州省、湖南省、湖北省</td>
+            </tr>
+            <tr class="page_2">
+                <td >39</td>
+                <td >左江花山岩画文化景观</td>
+                <td >广西壮族自治区</td>
+            </tr>
+            <tr class="page_2">
+                <td >40</td>
+                <td >鼓浪屿：历史国际社区</td>
+                <td >福建省</td>
+            </tr>
+            <tr class="page_2">
+                <td >41</td>
+                <td >良渚古城遗址</td>
+                <td >浙江省</td>
+            </tr>
+            <tr class="page_2">
+                <td >42</td>
+                <td >泉州：宋元中国的世界海洋商贸中心</td>
+                <td >福建省</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="1" class="menu">
+        <p>中国世界文化遗产名录</p>
+        <table>
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>名称</th>
+                <th>省份</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="page_1">
+                <td>1</td>
+                <td>周口店北京人遗址</td>
+                <td>北京市</td>
+            </tr>
+            <tr class="page_1">
+                <td >2</td>
+                <td >明清故宫（北京故宫、沈阳故宫）</td>
+                <td >北京市、辽宁省</td>
+            </tr>
+            <tr class="page_1">
+                <td >3</td>
+                <td >泰山</td>
+                <td >山东省</td>
+            </tr>
+            <tr class="page_1">
+                <td >4</td>
+                <td >秦始皇陵及兵马俑</td>
+                <td >陕西省</td>
+            </tr>
+            <tr class="page_1">
+                <td >5</td>
+                <td >莫高窟</td>
+                <td >甘肃省</td>
+            </tr>
+            <tr class="page_1">
+                <td >6</td>
+                <td >长城</td>
+                <td >辽宁省、吉林省、河北省、北京市、天津市、山西省、内蒙古、陕西、宁夏自治区、甘肃省、新疆维吾尔自治区、山东省、河南省、湖北省、湖南省、四川省、青海省</td>
+            </tr>
+            <tr class="page_1">
+                <td >7</td>
+                <td >黄山</td>
+                <td >安徽省</td>
+            </tr>
+            <tr class="page_1">
+                <td >8</td>
+                <td >承德避暑山庄及其周围寺庙</td>
+                <td >河北省</td>
+            </tr>
+            <tr class="page_1">
+                <td >9</td>
+                <td >拉萨布达拉宫历史建筑群（含罗布林卡和大昭寺）</td>
+                <td >西藏自治区</td>
+            </tr>
+            <tr class="page_1">
+                <td >10</td>
+                <td >曲阜孔庙、孔林和孔府</td>
+                <td >山东省</td>
+            </tr>
+            <tr class="page_1">
+                <td >11</td>
+                <td >武当山古建筑群</td>
+                <td >湖北省</td>
+            </tr>
+            <tr class="page_1">
+                <td >12</td>
+                <td >峨眉山-乐山大佛</td>
+                <td >四川省</td>
+            </tr>
+            <tr class="page_1">
+                <td >13</td>
+                <td >庐山国家公园</td>
+                <td >江西省</td>
+            </tr>
+            <tr class="page_1">
+                <td >14</td>
+                <td >丽江古城</td>
+                <td >云南省</td>
+            </tr>
+            <tr class="page_1">
+                <td >15</td>
+                <td >平遥古城</td>
+                <td >山西省</td>
+            </tr>
+            <tr class="page_1">
+                <td >16</td>
+                <td >苏州古典园林</td>
+                <td >江苏省</td>
+            </tr>
+            <tr class="page_1">
+                <td >17</td>
+                <td >北京皇家园林-颐和园</td>
+                <td >北京市</td>
+            </tr>
+            <tr class="page_1">
+                <td >18</td>
+                <td >北京皇家祭坛-天坛</td>
+                <td >北京市</td>
+            </tr>
+            <tr class="page_1">
+                <td >19</td>
+                <td >大足石刻</td>
+                <td >重庆市</td>
+            </tr>
+            <tr class="page_1">
+                <td >20</td>
+                <td >武夷山</td>
+                <td >福建省</td>
+            </tr>
+            <tr class="page_1">
+                <td >21</td>
+                <td >明清皇家陵寝</td>
+                <td >辽宁省、河北省、湖北省、北京市、江苏省</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="main_body">
+        <div class="big">
+            <div class="big_img"></div>
+            <div class="img_blur"></div>
+        </div>
+        <div class="small_img">
+            <div class="img img1"><img src="./pic/1.jpg" alt=""><div class="name">周口店北京人遗址</div></div>
+            <div class="img"><img src="./pic/2.jpg" alt=""><div class="name">明清故宫</div></div>
+            <div class="img"><img src="./pic/3.jpg" alt=""><div class="name">泰山</div></div>
+            <div class="img"><img src="./pic/4.jpg" alt=""><div class="name">秦始皇陵及兵马俑</div></div>
+            <div class="img"><img src="./pic/5.jpg" alt=""><div class="name">莫高窟</div></div>
+            <div class="img"><img src="./pic/6.jpg" alt=""><div class="name">长城</div></div>
+            <div class="img"><img src="./pic/7.jpg" alt=""><div class="name">黄山</div></div>
+            <div class="img"><img src="./pic/8.jpg" alt=""><div class="name">承德避暑山庄及其周围寺庙</div></div>
+            <div class="img"><img src="./pic/9.jpg" alt=""><div class="name">拉萨布达拉宫历史建筑群</div></div>
+            <div class="img"><img src="./pic/10.jpg" alt=""><div class="name">曲阜孔庙、孔林和孔府</div></div>
+            <div class="img"><img src="./pic/11.jpg" alt=""><div class="name">武当山古建筑群</div></div>
+            <div class="img"><img src="./pic/12.jpg" alt=""><div class="name">峨眉山-乐山大佛</div></div>
+            <div class="img"><img src="./pic/13.jpg" alt=""><div class="name">庐山国家公园</div></div>
+            <div class="img"><img src="./pic/14.jpg" alt=""><div class="name">丽江古城</div></div>
+            <div class="img"><img src="./pic/15.jpg" alt=""><div class="name">平遥古城</div></div>
+            <div class="img"><img src="./pic/16.jpg" alt=""><div class="name">苏州古典园林</div></div>
+            <div class="img"><img src="./pic/17.jpg" alt=""><div class="name">北京皇家园林-颐和园</div></div>
+            <div class="img"><img src="./pic/18.jpg" alt=""><div class="name">北京皇家祭坛-天坛</div></div>
+            <div class="img"><img src="./pic/19.jpg" alt=""><div class="name">大足石刻</div></div>
+            <div class="img"><img src="./pic/20.jpg" alt=""><div class="name">武夷山</div></div>
+            <div class="img"><img src="./pic/21.jpg" alt=""><div class="name">明清皇家陵寝</div></div>
+            <div class="img"><img src="./pic/22.jpg" alt=""><div class="name">皖南古村落-西递、宏村</div></div>
+            <div class="img"><img src="./pic/23.jpg" alt=""><div class="name">青城山-都江堰</div></div>
+            <div class="img"><img src="./pic/24.jpg" alt=""><div class="name">龙门石窟</div></div>
+            <div class="img"><img src="./pic/25.jpg" alt=""><div class="name">云冈石窟</div></div>
+            <div class="img"><img src="./pic/26.jpg" alt=""><div class="name">高句丽王城、王陵及贵族墓葬</div></div>
+            <div class="img"><img src="./pic/27.jpg" alt=""><div class="name">澳门历史城区</div></div>
+            <div class="img"><img src="./pic/28.jpg" alt=""><div class="name">殷墟</div></div>
+            <div class="img"><img src="./pic/29.jpg" alt=""><div class="name">开平碉楼与村落</div></div>
+            <div class="img"><img src="./pic/30.jpg" alt=""><div class="name">福建土楼</div></div>
+            <div class="img"><img src="./pic/31.jpg" alt=""><div class="name">五台山</div></div>
+            <div class="img"><img src="./pic/32.jpg" alt=""><div class="name">登封“天地之中”历史建筑群</div></div>
+            <div class="img"><img src="./pic/33.jpg" alt=""><div class="name">杭州西湖文化景观</div></div>
+            <div class="img"><img src="./pic/34.jpg" alt=""><div class="name">元上都遗址</div></div>
+            <div class="img"><img src="./pic/35.jpg" alt=""><div class="name">红河哈尼梯田文化景观</div></div>
+            <div class="img"><img src="./pic/36.jpg" alt=""><div class="name">丝绸之路:长安—天山廊道的路网</div></div>
+            <div class="img"><img src="./pic/37.jpg" alt=""><div class="name">大运河</div></div>
+            <div class="img"><img src="./pic/38.jpg" alt=""><div class="name">吐司遗址</div></div>
+            <div class="img"><img src="./pic/39.jpg" alt=""><div class="name">左江花山岩画文化景观</div></div>
+            <div class="img"><img src="./pic/40.jpg" alt=""><div class="name">鼓浪屿:历史国际社区</div></div>
+            <div class="img"><img src="./pic/41.jpg" alt=""><div class="name">良渚古城遗址</div></div>
+            <div class="img"><img src="./pic/42.jpg" alt=""><div class="name">泉州:宋元中国的世界海洋商贸中心</div></div>
+        </div>
+</div>
+
+
+</div>
+
+<script src="echarts.js"></script>
+<script src="china.js"></script>
+<script>
+    function theme1(){
+        let main_title=document.getElementById("title")
+        $(".ShiJie").show();
+        $(".Nationwide").hide();
+        main_title.style.backgroundColor='rgb(197, 150, 106)';
+    }
+    function theme2(){
+        let main_title=document.getElementById("title")
+        $(".Nationwide").show();
+        $(".ShiJie").hide();
+        main_title.style.backgroundColor='#ffdca2';
+    }
+    function page1() {
+        $("#1").show();
+        $("#2").hide();
+    }
+    function page2() {
+        $("#2").show();
+        $("#1").hide();
+    }
+
+    let bigImg=document.querySelector(".big_img")
+    let img_blur=document.querySelector(".img_blur")
+    let Img=document.getElementsByClassName("img")
+    let time
+    let index=0
+    let time_change=function (){
+        for (let i = 0; i < Img.length; i++) {
+            Img[i].className="img"
+        }
+    }
+    let select=function (){
+        time_change()
+        Img[index].className="img"
+    }
+    function ts(){
+        time=setInterval(function (){
+            select()
+            index++
+            bigImg.style.backgroundImage="url('./pic/"+[index]+".jpg')"
+            img_blur.style.backgroundImage="url('./pic/"+[index]+".jpg')"
+            if(index==42){
+                index=0
+            }
+        },1400)
+    }
+    for (let i = 0; i < Img.length; i++) {
+        Img[i].onmousemove=function (){
+            bigImg.style.backgroundImage="url('./pic/"+[i+1]+".jpg')"
+            img_blur.style.backgroundImage="url('./pic/"+[i+1]+".jpg')"
+            time_change()
+            clearInterval(time)
+            index=i+1
+            ts()
+        }
+    }
+    ts()
+    //图片轮播部分代码有参考和改动，源码来自B站@小羊の前端小窝
+</script>
+<script>
+    var mymap=echarts.init(document.getElementById("map"))
+    var outname = ['北京','天津','河北','山西','内蒙古','辽宁','吉林','黑龙江','上海','江苏','浙江','安徽','福建','江西','山东','河南','湖北','湖南','广东','广西','海南','重庆','四川','贵州','云南','西藏','陕西','甘肃','青海','宁夏','新疆','香港','澳门','台湾'];
+    var outvalue = [140,34,302,538,152,158,99,71,41,263,301,179,181,190,233,429,177,234,135,84,37,64,287,82,170,70,284,162,52,38,138,0,0,0];
+    var outdata = [];
+    for (var i = 0; i < outname.length; i++) {
+        outdata.push({
+            name: outname[i],
+            value: outvalue[i]
+        })
+    }
+    option_map = {
+        title: {
+            top: 15,
+            text: '全国重点文物保护单位各省份数量分布',
+            x: 250,
+            textStyle: {
+                fontFamily: 'KaiTi',
+                fontSize:'17',
+                color: '#000000'
+            }
+        },
+        tooltip: {
+            show: true,
+            formatter: function(params) {
+                return '&nbsp;&nbsp;' + params.name + '&nbsp;&nbsp;&nbsp;' + params.value + '处&nbsp;&nbsp;';
+            }
+        },
+        visualMap: {
+            type: 'piecewise',
+            left: '15',
+            bottom: '15',
+            itemWidth: 27,
+            itemHeight: 15,
+            textStyle: {
+                fontFamily: 'WenQuanYiMicroHei',
+                color: '#333333',
+                fontSize: 14,
+            },
+            pieces: [{
+                min: 400,
+                label: '>400',
+            }, {
+                max: 400,
+                min: 200,
+                label: '200-400',
+            }, {
+                max: 200,
+                min: 100,
+                label: '100-200',
+            }, {
+                max: 100,
+                min: 0,
+                label: '0-100',
+            }, ],
+            inRange: {
+                //color: [ '#eee3d9','#f1decc','#f5d9bd','#f0c9a1']
+                //color: ['#d6ccc2','#ccbbb3','#b7a597','#b09383']
+                //color: ['#e3dac7','#e0ceb8','#d4c09b','#cfb795']
+                color: ['#ffdca2','#f7cd98','#fbb957','#ffa60f']
+            },
+            outOfRange: {
+                color: ['rgba(255,255,255)'],
+            }
+        },
+        geo: {
+            map: 'china',
+            x:100,
+            show: true,
+            roam: true,
+            zoom:1.15,
+            label: {
+                emphasis: {
+                    show: false,
+                }
+            },
+            itemStyle: {
+                normal: {
+                    borderColor: '#e3dac7',
+                    shadowColor: 'rgba(0,0,0,0.2)',
+                    shadowOffsetY: 15,
+                    shadowBlur: 5
+                }
+            }
+        },
+        series: [{
+            type: 'map',
+            map: 'china',
+            x: 100,
+            aspectScale: 0.75,
+            zoom:1.15,
+            roam: true,
+            label: {
+                normal: {
+                    show: true,
+                    fontSize: 10,
+                    fontFamily:'WenQuanYiMicroHei'
+                },
+                emphasis: {
+                    show: true,
+                    color: '#fff',
+                    fontSize: 10
+                }
+            },
+            itemStyle: {
+                normal: {
+                    borderColor: '#000',
+                    borderWidth: 0.2,
+                },
+                emphasis: {
+                    areaColor: '#ff9646',
+                }
+            },
+            data: outdata
+        }]
+    };
+    mymap.on('georoam', function(params) {
+        var option = mymap.getOption(); //获得option对象
+        if (params.zoom != null && params.zoom != undefined) { //捕捉到缩放时
+            option.geo[0].zoom = option.series[0].zoom; //下层geo的缩放等级跟着上层的geo一起改变
+            option.geo[0].center = option.series[0].center; //下层的geo的中心位置随着上层geo一起改变
+        } else { //捕捉到拖曳时
+            option.geo[0].center = option.series[0].center; //下层的geo的中心位置随着上层geo一起改变
+        }
+        mymap.setOption(option); //设置option
+    });
+    mymap.setOption(option_map);
+</script>
+<script>
+    var myChart=echarts.init(document.getElementById("all_pc"))
+    data = [
+        {
+        name: '北京',
+        value: 140
+        },
+        {
+            name: '天津',
+            value: 34
+        },
+        {
+            name: '河北',
+            value: 302
+        },
+        {
+            name: '山西',
+            value:538
+        },
+        {
+            name: '内蒙古',
+            value:152
+        },
+        {
+            name: '辽宁',
+            value:158
+        },
+        {
+            name: '吉林',
+            value:99
+        },
+        {
+            name: '黑龙江',
+            value:71
+        },
+        {
+            name: '上海',
+            value:41
+        },
+        {
+            name: '江苏',
+            value:263
+        },
+        {
+            name: '浙江',
+            value:301
+        },
+        {
+            name: '安徽',
+            value:179
+        },
+        {
+            name: '福建',
+            value:181
+        },
+        {
+            name: '江西',
+            value:190
+        },
+        {
+            name: '山东',
+            value:233
+        },
+        {
+            name: '河南',
+            value:429
+        },
+        {
+            name: '湖北',
+            value:177
+        },
+        {
+            name: '湖南',
+            value:234
+        },
+        {
+            name: '广东',
+            value:135
+        },
+        {
+            name: '广西',
+            value:84
+        },
+        {
+            name: '海南',
+            value:37
+        },
+        {
+            name: '重庆',
+            value:64
+        },
+        {
+            name: '四川',
+            value:287
+        },
+        {
+            name: '贵州',
+            value:82
+        },
+        {
+            name: '云南',
+            value:170
+        },
+        {
+            name: '西藏',
+            value:70
+        },
+        {
+            name: '陕西',
+            value:284
+        },
+        {
+            name: '甘肃',
+            value:162
+        },
+        {
+            name: '青海',
+            value:52
+        },
+        {
+            name: '宁夏',
+            value:38
+        },
+        {
+            name: '新疆',
+            value:138
+        },
+        {
+            name: '香港',
+            value:0
+        },
+        {
+            name: '澳门',
+            value:0
+        },
+        {
+            name: '台湾',
+            value:0
+        },
+    ];
+    getArrByKey = (data, k) => {
+        let key = k || "value";
+        let res = [];
+        if (data) {
+            data.forEach(function (t) {
+                res.push(t[key]);
+            });
+        }
+        return res;
+    };
+    opt = {
+        index: 0
+    }
+    color = ['#ed5a65', '#FF904D', '#fbda41'];
+    data = data.sort((a,b) => {
+        return b.value - a.value
+    });
+    option = {
+        grid: {
+            top: '2%',
+            bottom: -15,
+            right: 30,
+            left: -30,
+            containLabel: true
+        },
+        xAxis: {
+            show: false
+        },
+        yAxis: [{
+            triggerEvent: true,
+            show: true,
+            inverse: true,
+            data: getArrByKey(data, 'name'),
+            axisLine: {
+                show: false
+            },
+            splitLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                interval: 0,
+                color: '#666',
+                align: 'left',
+                margin: 80,
+                fontSize: 13,
+                formatter: function (value, index) {
+                    if (opt.index === 0 && index < 3) {
+                        return '{idx' + index + '|' + (1 + index) + '} {title|' + value + '}'
+                    } else if (opt.index !== 0 && (index + opt.index) < 9) {
+                        return '{idx|0' + (1 + index + opt.index) + '} {title|' + value + '}'
+                    } else {
+                        return '{idx|' + (1 + index + opt.index) + '} {title|' + value + '}'
+                    }
+                },
+                rich: {
+                    idx0: {
+                        color: '#ed5a65',
+                        backgroundColor: '#f0c9cf',
+                        borderRadius: 100,
+                        padding: [3,6]
+                    },
+                    idx1: {
+                        color: '#fca104',
+                        backgroundColor: '#FFEACF',
+                        borderRadius: 100,
+                        padding: [3, 6]
+                    },
+                    idx2: {
+                        color: '#fbda41',
+                        backgroundColor: '#f9f4dc',
+                        borderRadius: 100,
+                        padding: [3, 6]
+                    },
+                    idx: {
+                        color: '#000',
+                        borderRadius: 100,
+                        padding: [3, 6]
+                    },
+                    title: {
+                        width: 165
+                    }
+                }
+            },
+        }, {
+            triggerEvent: true,
+            show: true,
+            inverse: true,
+            data: getArrByKey(data, 'name'),
+            axisLine: {
+                show: false
+            },
+            splitLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                interval: 0,
+                color: '#000',
+                align: 'left',
+                margin: 20,
+                fontSize: 13,
+                formatter: function (value, index) {
+                    return (data[index].value + '处')
+                },
+            }
+        }],
+        series: [{
+            name: '条',
+            type: 'bar',
+            yAxisIndex: 0,
+            data: data,
+            barWidth: 10,
+            itemStyle: {
+                color: (val) => {
+                    if (val.dataIndex < 3 && opt.index === 0) {
+                        return color[val.dataIndex];
+                    } else {
+                        return '#b9dec9'
+                    }
+                },
+                barBorderRadius: 30,
+            }
+        }]
+    };
+    myChart.setOption(option);
+</script>
+<script>
+    //1
+    var mychart1=echarts.init(document.getElementById("box-one"))
+    var ydata = [
+        {
+            'name': '第一批',
+            'value': 180
+        }, {
+            'name': '第二批',
+            'value': 62
+        }, {
+            'name': '第三批',
+            'value': 258
+        }, {
+            'name': '第四批',
+            'value': 262
+        }, {
+            'name': '第五批',
+            'value': 542
+        }, {
+            'name': '第六批',
+            'value': 1186
+        },
+        {
+            'name': '第七批',
+            'value': 1190
+        },
+        {
+            'name': '第八批',
+            'value': 812
+        }
+    ];
+    var color1 = ["#fbd6e1", "#ace4cb","#fec620","#f8625a","#789cce","#10b48e","#fa8a89","#acbfea"]
+    var xdata = ['第一批', "第二批", "第三批", "第四批", '第五批','第六批','第七批','第八批'];
+    option1 = {
+        backgroundColor:'rgb(239, 239, 239)',
+        color:color1,
+        legend: {
+            orient: "vartical",
+            x: "left",
+            top: "center",
+            left: "80%",
+            bottom: "0%",
+            data: xdata,
+            itemWidth: 8,
+            itemHeight: 8,
+            itemGap :16,
+            /*formatter:function(name){
+              var oa = option.series[0].data;
+              var num = oa[0].value + oa[1].value + oa[2].value + oa[3].value+oa[4].value + oa[5].value + oa[6].value + oa[7].value+oa[8].value + oa[9].value ;
+              for(var i = 0; i < option.series[0].data.length; i++){
+                  if(name==oa[i].name){
+                      return ' '+name + '    |    ' + oa[i].value + '    |    ' + (oa[i].value/num * 100).toFixed(2) + '%';
+                  }
+              }
+            }*/
+
+            formatter :function(name){
+                return ''+name
+            }
+        },
+        series: [{
+            type: 'pie',
+            x:'30',
+            clockwise: true, //饼图的扇区是否是顺时针排布
+            minAngle: 2, //最小的扇区角度（0 ~ 360）
+            radius: ["40%", "70%"],
+            center: ["30%", "50%"],
+            avoidLabelOverlap: false,
+            itemStyle: { //图形样式
+                normal: {
+                    borderColor: 'rgb(239, 239, 239)',
+                    borderWidth: 3,
+                },
+            },
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center',
+                    formatter: '{text|{b}}\n{c} ({d}%)',
+                    rich: {
+                        text: {
+                            color: "#666",
+                            fontSize: 14,
+                            align: 'center',
+                            verticalAlign: 'middle',
+                            padding: 8
+                        },
+                        value: {
+                            color: "#8693F3",
+                            fontSize: 17,
+                            align: 'center',
+                            verticalAlign: 'middle',
+                        },
+                    }
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: 17,
+                    }
+                }
+            },
+            data: ydata
+        }]
+    };
+    myChart.setOption(option);
+
+    setTimeout(function() {
+        myChart.on('mouseover', function(params) {
+            if (params.name == ydata[0].name) {
+                myChart.dispatchAction({
+                    type: 'highlight',
+                    seriesIndex: 0,
+                    dataIndex: 0
+                });
+            } else {
+                myChart.dispatchAction({
+                    type: 'downplay',
+                    seriesIndex: 0,
+                    dataIndex: 0
+                });
+            }
+        });
+
+        myChart.on('mouseout', function(params) {
+            myChart.dispatchAction({
+                type: 'highlight',
+                seriesIndex: 0,
+                dataIndex: 0
+            });
+        });
+        myChart.dispatchAction({
+            type: 'highlight',
+            seriesIndex: 0,
+            dataIndex: 0
+        });
+    }, 1000);
+    mychart1.setOption(option1);
+</script>
+</body>
+</html>
